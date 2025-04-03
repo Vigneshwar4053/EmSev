@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Directory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .card {
+            width: 400px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+        .icon {
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            border:solid black ;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .ngo-name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .ngo-info {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .ngo-link {
+            color: blue;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="bg-black text-white text-4xl p-4">NGO Directory</h1>
+    <div class="container mt-20 grid grid-cols-3 mx-20 gap-12" id="ngo-list"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('NGO.csv')
+                .then(response => response.text())
+                .then(csvText => {
+                    Papa.parse(csvText, {
+                        header: true,
+                        skipEmptyLines: true,
+                        complete: function (results) {
+                            displayNGOs(results.data);
+                        }
+                    });
+                });
+
+            function displayNGOs(data) {
+                const container = document.getElementById("ngo-list");
+                container.innerHTML = "";
+
+                data.forEach(ngo => {
+                    let card = document.createElement("div");
+                    card.className = "card";
+
+                    card.innerHTML = `
+                        <div class="icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="ngo-name">${ngo.Name || "N/A"}</div>
+                        <div class="ngo-info"><strong>Description:</strong> ${ngo.Description || "N/A"}</div>
+                        <div class="ngo-info"><strong>Address:</strong> ${ngo.Address || "N/A"}</div>
+                        <div class="ngo-info"><strong>Phone:</strong> ${ngo.Phone || "N/A"}</div>
+                        <div class="ngo-info"><strong>Email:</strong> ${ngo.Email || "N/A"}</div>
+                        ${ngo.Website ? `<a href="${ngo.Website}" class="ngo-link" target="_blank">Visit Website</a>` : ""}
+                    `;
+
+                    container.appendChild(card);
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+Disease,DiseaseDescription,Symptoms,HospitalName,HospitalAddress,ContactInfo
+Cystic Fibrosis,A genetic disorder affecting the lungs and digestive system,"Chronic cough, difficulty breathing, lung infections",AIIMS Delhi,"Ansari Nagar, New Delhi",011-26588500
+Cystic Fibrosis,A genetic disorder affecting the lungs and digestive system,"Chronic cough, difficulty breathing, lung infections",Apollo Hospitals,"Chennai, Tamil Nadu",044-28290200
+Huntington's Disease,A progressive brain disorder that affects movement and thinking,"Involuntary movements, cognitive decline, speech difficulty",NIMHANS,"Bangalore, Karnataka",080-26995000
+Huntington's Disease,A progressive brain disorder that affects movement and thinking,"Involuntary movements, cognitive decline, speech difficulty",Medanta Hospital,"Gurgaon, Haryana",0124-4141414
+Gaucher Disease,A rare genetic disorder causing fat accumulation in organs,"Enlarged liver, fatigue, easy bruising",Fortis Hospital,"Kolkata, West Bengal",033-66276627
+Gaucher Disease,A rare genetic disorder causing fat accumulation in organs,"Enlarged liver, fatigue, easy bruising",Christian Medical College,"Vellore, Tamil Nadu",0416-2281000
+Marfan Syndrome,A connective tissue disorder affecting the heart and eyes,"Long limbs, flexible joints, heart murmurs",Kokilaben Hospital,"Mumbai, Maharashtra",022-30999999
+Marfan Syndrome,A connective tissue disorder affecting the heart and eyes,"Long limbs, flexible joints, heart murmurs",AIIMS Bhubaneswar,"Bhubaneswar, Odisha",0674-2476789
+Amyloidosis,A condition where abnormal protein builds up in organs,"Swelling, fatigue, irregular heartbeat",Sankara Nethralaya,"Chennai, Tamil Nadu",044-28271616
+Amyloidosis,A condition where abnormal protein builds up in organs,"Swelling, fatigue, irregular heartbeat",Amrita Institute of Medical Sciences,"Kochi, Kerala",0484-2851234
+Wilson's Disease,A rare disorder causing copper accumulation in the liver and brain,"Tremors, jaundice, speech difficulty",Manipal Hospital,"Bangalore, Karnataka",080-25024202
+Wilson's Disease,A rare disorder causing copper accumulation in the liver and brain,"Tremors, jaundice, speech difficulty",Sri Ramachandra Medical College,"Chennai, Tamil Nadu",044-24768027
+Ehlers-Danlos Syndrome,A group of disorders affecting connective tissues,"Joint hypermobility, stretchy skin, fragile blood vessels",Max Super Specialty Hospital,"Delhi",011-26515050
+Ehlers-Danlos Syndrome,A group of disorders affecting connective tissues,"Joint hypermobility, stretchy skin, fragile blood vessels",SRM Medical College Hospital,"Kanchipuram, Tamil Nadu",044-27454646
+Hemophilia,A genetic disorder impairing blood clotting,"Excessive bleeding, joint pain, easy bruising",Apollo Indraprastha,"Delhi",011-26925858
+Hemophilia,A genetic disorder impairing blood clotting,"Excessive bleeding, joint pain, easy bruising",AIIMS Rishikesh,"Rishikesh, Uttarakhand",0135-2462952
+Batten Disease,A rare fatal nervous system disorder,"Seizures, vision loss, dementia",CMC Ludhiana,"Ludhiana, Punjab",0161-2115370
+Batten Disease,A rare fatal nervous system disorder,"Seizures, vision loss, dementia",Ruby Hall Clinic,"Pune, Maharashtra",020-66455100
+Prader-Willi Syndrome,A genetic disorder affecting physical and mental development,"Obesity, intellectual disability, constant hunger",KIMS Hospital,"Hyderabad, Telangana",040-44885000
+Prader-Willi Syndrome,A genetic disorder affecting physical and mental development,"Obesity, intellectual disability, constant hunger",Aster Medcity,"Kochi, Kerala",0484-6699999
+Moyamoya Disease,A rare blood vessel disorder in the brain,"Stroke, speech difficulty, movement problems",Narayana Health,"Bangalore, Karnataka",080-71222222
+Moyamoya Disease,A rare blood vessel disorder in the brain,"Stroke, speech difficulty, movement problems",AIIMS Jodhpur,"Jodhpur, Rajasthan",0291-2740741
+Myasthenia Gravis,An autoimmune disorder causing muscle weakness,"Drooping eyelids, difficulty swallowing, breathing issues",Medica Superspecialty Hospital,"Kolkata, West Bengal",033-66520000
+Myasthenia Gravis,An autoimmune disorder causing muscle weakness,"Drooping eyelids, difficulty swallowing, breathing issues",SGPGI,"Lucknow, Uttar Pradesh",0522-2668004
+Progeria,A rare genetic disorder causing rapid aging in children,"Growth failure, joint stiffness, heart disease",Max Hospital,"Mohali, Punjab",0172-6652000
+Progeria,A rare genetic disorder causing rapid aging in children,"Growth failure, joint stiffness, heart disease",Jehangir Hospital,"Pune, Maharashtra",020-66819999
+Alexander Disease,A rare genetic disorder affecting the nervous system,"Macrocephaly, Seizures, Spasticity",AIIMS,"New Delhi",+91-11-26588500
+Alkaptonuria,A metabolic disorder causing black urine disease,"Dark urine, Joint pain, Heart valve damage",Christian Medical College,"Vellore, Tamil Nadu",+91-416-2281000
+Apert Syndrome,A genetic disorder characterized by skeletal abnormalities,"Craniosynostosis, Syndactyly, Facial anomalies",PGIMER,"Chandigarh",+91-172-2747585
+Barth Syndrome,A genetic condition affecting skeletal muscles and the heart,"Fatigue, Muscle weakness, Heart issues",Narayana Health,"Bangalore",+91-80-71222222
+Canavan Disease,A rare genetic disorder causing progressive damage to brain cells,"Hypotonia, Large head, Seizures",Manipal Hospital,"Bangalore",+91-80-40116666
+Chediak-Higashi Syndrome,A disorder affecting the immune and nervous systems,"Recurrent infections, Albinism, Neuropathy",Apollo Hospitals,"Chennai",+91-44-28290200
+Fabry Disease,A genetic disorder affecting fat metabolism,"Pain, Kidney disease, Heart problems",Sir Ganga Ram Hospital,"New Delhi",+91-11-25750000
+Menkes Disease,A disorder affecting copper absorption in the body,"Weak muscles, Seizures, Brittle hair",NIMHANS,"Bangalore",+91-80-26995000
+Norrie Disease,A rare genetic disorder causing blindness and hearing loss,"Blindness, Cognitive impairment, Autism-like behavior",Shankar Netralaya,"Chennai",+91-44-28271616
+Tay-Sachs Disease,A fatal genetic disorder affecting nerve cells in the brain,"Seizures, Muscle weakness, Vision loss",Max Healthcare,"Delhi",+91-11-26515050
+Wilson’s Disease,A disorder affecting copper metabolism in the liver,"Jaundice, Neurological issues, Tremors",Narayana Health,"Bangalore",+91-80-71222222

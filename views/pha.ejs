@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmacy Finder</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <header class="bg-black text-white py-6 shadow-lg">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-bold">Find Pharmacies</h1>
+      <p class="mt-2 text-lg">Search pharmacies in your district</p>
+    </div>
+  </header>
+  
+  <main class="container mx-auto p-6">
+    <!-- Search Form -->
+    <form id="search-form" class="flex max-w-[55%] mx-auto justify-between mt-6">
+      <input type="text" id="district-search" class="bg-white block w-full p-4 text-sm text-gray-900 rounded-lg focus:outline-none" placeholder="Enter your district..." required />
+      <button type="submit" class="text-white bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2">Search</button>
+    </form>
+    
+    <!-- Skeleton Loader -->
+    <div id="skeleton" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+      <div class="bg-white p-6 rounded-lg shadow-md animate-pulse">
+        <div class="h-6 bg-gray-300 w-3/4 mb-2"></div>
+        <div class="h-4 bg-gray-200 w-1/2 mb-2"></div>
+        <div class="h-4 bg-gray-200 w-full mb-2"></div>
+        <div class="h-4 bg-gray-200 w-2/3 mb-2"></div>
+      </div>
+    </div>
+
+    <!-- Pharmacy Results -->
+    <div id="pharmacies" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 hidden"></div>
+  </main>
+  
+  <footer class="bg-black text-white py-4 mt-8">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Pharmacy Finder. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async function (position) {
+          const { latitude, longitude } = position.coords;
+
+          try {
+            // Fetching location details from OpenStreetMap
+            const geoResponse = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`);
+            const geoData = await geoResponse.json();
+            const userDistrict = geoData.address.district || geoData.address.county || "";
+            console.log('User District:', userDistrict);
+
+            // Fetch pharmacy data from the CSV file
+            const response = await fetch('pha.csv');
+            if (!response.ok) throw new Error('Failed to fetch CSV');
+            const data = await response.text();
+            
+            // Parse the CSV file
+            Papa.parse(data, {
+              header: true,
+              complete: function(results) {
+                const pharmacies = results.data.filter(pharmacy => 
+                  pharmacy['DistrictName'] && pharmacy['StateName'] &&
+                  pharmacy['DistrictName'].toLowerCase() === 'hyderabad' &&  // Fixed for Hyderabad only
+                  pharmacy['KendraCode'] && 
+                  pharmacy['Name'] && 
+                  pharmacy['StateName'] && 
+                  pharmacy['DistrictName'] && 
+                  pharmacy['PinCode'] && 
+                  pharmacy['Address']
+                );
+
+                // Hide Skeleton Loader and Show Results
+                document.getElementById("skeleton").classList.add("hidden");
+                document.getElementById("pharmacies").classList.remove("hidden");
+
+                // Limit to the first 30 pharmacies
+                displayPharmacies(pharmacies.slice(0, 30));
+              }
+            });
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        }, () => alert('Location access denied. Cannot fetch nearby pharmacies.'));
+      } else {
+        alert('Geolocation is not supported by this browser.');
+      }
+
+      // Handle search functionality
+      document.getElementById('search-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const searchQuery = document.getElementById('district-search').value.toLowerCase();
+
+        fetch('pha.csv')
+          .then(response => response.text())
+          .then(data => {
+            Papa.parse(data, {
+              header: true,
+              complete: function(results) {
+                const pharmacies = results.data.filter(pharmacy =>
+                  pharmacy['DistrictName'] &&
+                  pharmacy['DistrictName'].toLowerCase().includes(searchQuery)
+                );
+
+                // Show Results
+                displayPharmacies(pharmacies.slice(0, 30));
+              }
+            });
+          })
+          .catch(error => console.error('Error fetching CSV:', error));
+      });
+    });
+
+    function displayPharmacies(pharmacies) {
+      const container = document.getElementById('pharmacies');
+      container.innerHTML = pharmacies.length ? '' : "<p>Pleace enter  correct district.</p>";
+
+      pharmacies.forEach(pharmacy => {
+        const card = document.createElement('div');
+        card.className = 'bg-white p-6 rounded-lg shadow-md hover:shadow-lg';
+        card.innerHTML = `
+          <h2 class="text-xl font-bold text-black">${pharmacy.Name}</h2>
+          <p class="text-gray-600 mt-2"><span class="font-semibold">Kendra Code:</span> ${pharmacy['KendraCode']}</p>
+          <p class="text-gray-600 mt-2"><span class="font-semibold">District:</span> ${pharmacy['DistrictName']}</p>
+          <p class="text-gray-600 mt-2"><span class="font-semibold">State:</span> ${pharmacy['StateName']}</p>
+          <p class="text-gray-600 mt-2"><span class="font-semibold">Pin Code:</span> ${pharmacy['PinCode']}</p>
+          <p class="text-gray-600 mt-2">${pharmacy['Address']}</p>
+          <div class="mt-4">
+            <a href="https://www.google.com/maps/search/?q=${pharmacy.Name},${pharmacy['StateName']},${pharmacy['DistrictName']},${pharmacy['PinCode']}" 
+              target="_blank" 
+              class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+              Open in Maps
+            </a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

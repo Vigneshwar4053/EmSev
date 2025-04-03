@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        
+.dancing-script {
+    font-family: "Dancing Script", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+  .tangerine-regular {
+    font-family: "Tangerine", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+    </style>
+</head>
+<body class="bg-white">
+    <nav class="flex  mx-4 my-4 justify-between">
+        <div class="w-20 h-20 bg-black rounded-[100%]"></div>
+        <ul class="text-black font-bold flex justify-between w-[35%] items-center text-2xl mx-[6%]">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#explore-section">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="flex">
+        <div class="ml-[8%] mt-36">
+            <h1 class="text-6xl font-bold">Your Health, Our Priority</h1>
+            <p class="dancing-script text-4xl mt-4">-“Connecting you to care, wherever you are.”</p>
+            <p class="text-2xl w-[70%] ml-4 mt-4">Find hospitals, pharmacies, and rare disease specialists near you effortlessly with our user-friendly platform.Healthcare made simple and accessible.</p>
+            <button type="button" class="explore-btn text-white text-2xl mt-16 h-14 w-[16%] ml-[25%] bg-gradient-to-br from-black to-gray-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-800 font-medium rounded-lg px-5 py-2.5 text-center me-2 mb-2">
+                Explore
+            </button>
+        </div>
+        <div class="w-[800px] h-[400px] flex justify-center items-center flex-col mt-20">
+            <div class="flex mr-20">
+                <div class="w-[260px] h-60 border-4 border-black mr-4 rounded-tr-[40%]"></div>
+                <div class="bg-black w-[180px] h-60 rounded-tl-[120px]"></div>
+            </div>
+            <div class="flex mr-20 mt-4">
+                <div class="bg-black w-[180px] h-60 rounded-br-[120px]"></div>
+                <div class="w-[260px] h-60 border-4 border-black rounded-bl-[40%] ml-4"></div>
+            </div>
+        </div>
+        <!-- component -->
+<div class="fixed bottom-0 right-0 mb-4 mr-4">
+    <button id="open-chat" class="bg-black text-white py-2 px-4 rounded-md hover:bg-gray-600 transition duration-300 flex items-center">
+        <i class="fa-solid fa-plus text-white text-xl mr-4"></i>
+        Chat with My Bot
+    </button>
+</div>
+<div id="chat-container" class="hidden fixed bottom-16 right-4 w-96">
+    <div class="bg-white shadow-md rounded-lg max-w-lg w-full">
+        <div class="p-4 border-b bg-black text-white rounded-t-lg flex justify-between items-center">
+            <p class="text-lg font-semibold">My Bot</p>
+            <button id="close-chat" class="text-gray-300 hover:text-gray-400 focus:outline-none focus:text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="chatbox" class="p-4 h-80 overflow-y-auto">
+          <!-- Chat messages will be displayed here -->
+          <div class="mb-2 text-right">
+            <p class="bg-black text-white rounded-lg py-2 px-4 inline-block">hello</p>
+          </div>
+          <div class="mb-2">
+            <p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">This is a response from the chatbot.</p>
+          </div>  
+        </div>
+        <div class="p-4 border-t flex">
+            <input id="user-input" type="text" placeholder="Type a message" class="w-full px-3 py-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button id="send-button" class="bg-black text-white px-4 py-2 rounded-r-md hover:bg-gray-600 transition duration-300">Send</button>
+        </div>
+    </div>
+</div>
+
+    </main>
+    <div class="bg-black h-[420px] mt-32 flex items-center px-10">
+        <div class="h-[360px] w-[25%] bg-white flex justify-center items-center">
+            <img src="helpinghands.jpg" alt="Healthcare Image" class="h-[330px] w-auto rounded-lg">
+        </div>
+        <p class="text-white w-[60%] ml-20 text-2xl">
+            Our platform simplifies healthcare access by helping you find nearby hospitals, pharmacies, and rare disease specialists with ease. 
+            Whether you need urgent care or specialized treatment, we provide accurate, up-to-date information tailored to your location. 
+            With an intuitive, user-friendly interface, navigating healthcare options has never been easier. We prioritize accessibility, ensuring everyone can quickly connect with the right healthcare providers.
+            For those dealing with rare conditions, we make specialist searches straightforward and hassle-free.
+        </p>
+    </div>
+    <div class="mt-8 ml-6">
+        <h2 class="text-3xl font-bold text-black">Our Services</h2>
+      </div>
+    <div id="explore-section" class="bg-gray-50  mx-10 py-10 flex space-x-6">
+        <!-- Pharmacy Card -->
+        <div class="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:max-w-sm sm:rounded-lg sm:px-10">
+            <span class="absolute top-10 z-0 h-20 w-20 rounded-full bg-black transition-all duration-300 group-hover:scale-[10]"></span>
+            <div class="relative z-10 mx-auto max-w-md">
+                <span class="grid h-20 w-20 place-items-center rounded-full bg-black transition-all duration-300 group-hover:bg-gray-700">
+                    <i class="fa-solid fa-house-medical text-white text-4xl"></i>
+                </span>
+                <div class="space-y-6 pt-5 text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-white/90">
+                    <p>Find pharmacies near you that offer affordable, accurate medications with ease.</p>
+                </div>
+                <div class="pt-5 text-base font-semibold leading-7">
+                    <p><a href="pharmacies" class="text-black transition-all duration-300 group-hover:text-white">Locate Pharmacies &rarr;</a></p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Hospitals Near Me Card -->
+        <div class="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:max-w-sm sm:rounded-lg sm:px-10">
+            <span class="absolute top-10 z-0 h-20 w-20 rounded-full bg-black transition-all duration-300 group-hover:scale-[10]"></span>
+            <div class="relative z-10 mx-auto max-w-md">
+                <span class="grid h-20 w-20 place-items-center rounded-full bg-black transition-all duration-300 group-hover:bg-gray-700">
+                    <i class="fa-solid fa-hospital text-white text-4xl"></i>
+                </span>
+                <div class="space-y-6 pt-5 text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-white/90">
+                    <p>Quickly find nearby hospitals with detailed information and directions to navigate in emergency situations.</p>
+                </div>
+                <div class="pt-5 text-base font-semibold leading-7">
+                    <p><a href="hosp" class="text-black transition-all duration-300 group-hover:text-white">Hospitals Near Me &rarr;</a></p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Rare Disease Treating Hospitals Card -->
+        <div class="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:max-w-sm sm:rounded-lg sm:px-10">
+            <span class="absolute top-10 z-0 h-20 w-20 rounded-full bg-black transition-all duration-300 group-hover:scale-[10]"></span>
+            <div class="relative z-10 mx-auto max-w-md">
+                <span class="grid h-20 w-20 place-items-center rounded-full bg-black transition-all duration-300 group-hover:bg-gray-700">
+                    <i class="fa-solid fa-square-virus text-white text-4xl"></i>
+                </span>
+                <div class="space-y-6 pt-5 text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-white/90">
+                    <p>Find hospitals worldwide that specialize in rare diseases and get the treatment you need.</p>
+                </div>
+                <div class="pt-5 text-base font-semibold leading-7">
+                    <p><a href="diseases" class="text-black transition-all duration-300 group-hover:text-white">Rare Disease Treating Hospitals &rarr;</a></p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Connect with NGOs Card -->
+        <div class="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:max-w-sm sm:rounded-lg sm:px-10">
+            <span class="absolute top-10 z-0 h-20 w-20 rounded-full bg-black transition-all duration-300 group-hover:scale-[10]"></span>
+            <div class="relative z-10 mx-auto max-w-md">
+                <span class="grid h-20 w-20 place-items-center rounded-full bg-black transition-all duration-300 group-hover:bg-gray-700">
+                    <i class="fa-solid fa-link text-white text-4xl"></i>
+                </span>
+                <div class="space-y-6 pt-5 text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-white/90">
+                    <p>Reach out to NGOs for urgent support and assistance during emergencies.</p>
+                </div>
+                <div class="pt-5 text-base font-semibold leading-7">
+                    <p><a href="ngo" class="text-black transition-all duration-300 group-hover:text-white">Connect with NGOs &rarr;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<div class="bg-black my-8 w-[100%] h-[300px] flex justify-center items-center">
+    <p class="tangerine-regular text-white text-7xl w-[43%]">"For every need, there’s a place to heal -let us help you find it."</p>
+</div>
+<div class="font-sans  rounded-lg max-w-4xl mx-20">
+    <div class="mb-8">
+      <h2 class="text-3xl font-bold text-gray-800">Frequently asked questions</h2>
+    </div>
+</div>
+<div class="my-10 mx-20 space-y-2 ">
+    <button class="accordion bg-[#dedede] text-black text-xl p-[18px] cursor-pointer w-[100%]">Section 1</button>
+    <div class="hidden bg-white overflow-hidden px-0 py-[8px]">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <button class="accordion bg-[#dedede] text-black text-xl p-[18px] cursor-pointer w-[100%]">Section 1</button>
+    <div class="hidden bg-white overflow-hidden px-0 py-[8px]">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <button class="accordion bg-[#dedede] text-black text-xl p-[18px] cursor-pointer w-[100%]">Section 1</button>
+    <div class="hidden bg-white overflow-hidden px-0 py-[8px]">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <button class="accordion bg-[#dedede] text-black text-xl p-[18px] cursor-pointer w-[100%]">Section 1</button>
+    <div class="hidden bg-white overflow-hidden px-0 py-[8px]">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+</div>
+<div class="mt-20 w-[100%] h-[200px] bg-black">
+    <h1 class="text-3xl text-white  pt-6 ml-10">Contact Details:</h1>
+</div>
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".explore-btn").addEventListener("click", function () {
+            document.getElementById("explore-section").scrollIntoView({ behavior: "smooth" });
+        });
+    });
+const chatbox = document.getElementById("chatbox");
+const chatContainer = document.getElementById("chat-container");
+const userInput = document.getElementById("user-input");
+const sendButton = document.getElementById("send-button");
+const openChatButton = document.getElementById("open-chat");
+const closeChatButton = document.getElementById("close-chat");
+
+let isChatboxOpen = true; // Set the initial state to open
+
+// Function to toggle the chatbox visibility
+function toggleChatbox() {
+chatContainer.classList.toggle("hidden");
+isChatboxOpen = !isChatboxOpen; // Toggle the state
+}
+
+// Add an event listener to the open chat button
+openChatButton.addEventListener("click", toggleChatbox);
+
+// Add an event listener to the close chat button
+closeChatButton.addEventListener("click", toggleChatbox);
+
+// Add an event listener to the send button
+sendButton.addEventListener("click", function () {
+const userMessage = userInput.value;
+if (userMessage.trim() !== "") {
+    addUserMessage(userMessage);
+    respondToUser(userMessage);
+    userInput.value = "";
+}
+});
+
+userInput.addEventListener("keyup", function (event) {
+if (event.key === "Enter") {
+    const userMessage = userInput.value;
+    addUserMessage(userMessage);
+    respondToUser(userMessage);
+    userInput.value = "";
+}
+});
+
+function addUserMessage(message) {
+const messageElement = document.createElement("div");
+messageElement.classList.add("mb-2", "text-right");
+messageElement.innerHTML = `<p class="bg-black text-white rounded-lg py-2 px-4 inline-block">${message}</p>`;
+chatbox.appendChild(messageElement);
+chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+function addBotMessage(message) {
+const messageElement = document.createElement("div");
+messageElement.classList.add("mb-2");
+messageElement.innerHTML = `<p class="bg-gray-200 text-gray-700 rounded-lg py-2 px-4 inline-block">${message}</p>`;
+chatbox.appendChild(messageElement);
+chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+function respondToUser(userMessage) {
+// Replace this with your chatbot logic
+setTimeout(() => {
+    addBotMessage("This is a response from the chatbot.");
+}, 500);
+}
+
+
+</script>
+ 
+</body>
+</html>
