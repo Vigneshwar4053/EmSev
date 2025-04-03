@@ -28,7 +28,7 @@ Emserv  is a healthcare platform designed to help users find essential medical s
    - Add necessary environment variables (e.g., database URL, API keys).
 4. Start the server:
    ```bash
-   npm start
+   node server.js
    ```
 
 ## Usage
