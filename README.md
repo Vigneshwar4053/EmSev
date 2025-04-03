@@ -1,6 +1,6 @@
-# EmSev - Healthcare Assistance Platform
+# Emserv  - Healthcare Assistance Platform
 
-EmSev is a healthcare platform designed to help users find essential medical services quickly and efficiently. It enables users to locate nearby hospitals, medical shops offering affordable government-supplied medicines, hospitals specializing in rare diseases, and NGOs that provide financial assistance for expensive treatments.
+Emserv  is a healthcare platform designed to help users find essential medical services quickly and efficiently. It enables users to locate nearby hospitals, medical shops offering affordable government-supplied medicines, hospitals specializing in rare diseases, and NGOs that provide financial assistance for expensive treatments.
 
 ## Features
 - **Find Nearby Hospitals**: Easily locate hospitals based on your current location.
@@ -47,7 +47,7 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 
 
 ---
-Made with ❤️ by EmSev Team
+Made with ❤️ by Emserv  Team
 
 [🌟Vigneshwar](https://github.com/Vigneshwar4053)  
 [🌟Pramod](https://github.com/Pramod-325) 
